@@ -81,4 +81,4 @@ This project showcases the application of Advanced ML and DL techniques to the S
 
 For any questions or feedback, feel free to reach out:
 - Email: ignacioantequera2001@gmail.com
-- GitHub: [Ignaacio-Antequera](https://github.com/Ignacio-Antequera)
+- GitHub: [Ignacio-Antequera](https://github.com/Ignacio-Antequera)
