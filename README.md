@@ -4,6 +4,8 @@
 
 Hello There! My name is Ignacio Antequera. This project aims to solve the SMS spam classification task by leveraging the power of Advanced Machine Learning (ML) and Deep Learning (DL) techniques. By applying various models and tools, we build a robust system that can accurately classify incoming SMS messages as either spam or legitimate.
 
+Link to visualize demo of the project on the browser: [SMS Spam Classification using Advanced Machine Learning & Deep Learning](https://spam-classification-ignacio-antequera.netlify.app/)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -77,8 +79,11 @@ Models were evaluated based on accuracy, confusion matrices, and classification 
 
 This project showcases the application of Advanced ML and DL techniques to the SMS spam classification task. By exploring various models, preprocessing techniques, and evaluation metrics, we've built a comprehensive system for identifying spam messages.
 
-## Contact
+## Author
+Ignacio Antequera Sanchez
 
-For any questions or feedback, feel free to reach out:
-- Email: ignacioantequera2001@gmail.com
-- GitHub: [Ignacio-Antequera](https://github.com/Ignacio-Antequera)
+Kindly find my contact details listed below for your convenience. Your input is greatly appreciated.
+
+***
+
+[LinkedIn](https://www.linkedin.com/in/ignacio-antequera)  ||  [GitHub](https://github.com/Ignacio-Antequera)  ||  [Leetcode](https://leetcode.com/Ignacio_antequera)
