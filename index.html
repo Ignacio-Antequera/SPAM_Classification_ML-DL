@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -921,7 +922,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 | The full license is in the file LICENSE, distributed with this software.
 |----------------------------------------------------------------------------*/
 
-@charset "UTF-8";
 html{
   -webkit-box-sizing:border-box;
           box-sizing:border-box; }
@@ -4529,8 +4529,6 @@ form{
   -webkit-box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
           box-shadow:inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
   color:#182026;
-  -moz-appearance:none;
-  -webkit-appearance:none;
   border-radius:3px;
   height:30px;
   padding:0 25px 0 10px;
@@ -5046,7 +5044,6 @@ table.bp3-html-table.bp3-interactive tbody tr:hover td{
 table.bp3-html-table.bp3-interactive tbody tr:active td{
   background-color:rgba(191, 204, 214, 0.4); }
 
-.bp3-dark table.bp3-html-table{ }
   .bp3-dark table.bp3-html-table.bp3-html-table-striped tbody tr:nth-child(odd) td{
     background:rgba(92, 112, 128, 0.15); }
   .bp3-dark table.bp3-html-table.bp3-html-table-bordered th:not(:first-child){
@@ -6663,7 +6660,6 @@ span.bp3-icon:empty{
 
 .bp3-submenu .bp3-popover-target{
   display:block; }
-  .bp3-submenu .bp3-popover-target.bp3-popover-open > .bp3-menu-item{ }
 
 .bp3-submenu.bp3-popover{
   -webkit-box-shadow:none;
@@ -6904,7 +6900,6 @@ button.bp3-menu-item{
   background:#30404d;
   color:#f5f8fa; }
 
-.bp3-dark .bp3-menu-item{ }
   .bp3-dark .bp3-menu-item.bp3-intent-primary{
     color:#48aff0; }
     .bp3-dark .bp3-menu-item.bp3-intent-primary .bp3-icon{
@@ -10417,8 +10412,6 @@ input::placeholder {
   line-height: 14px;
   padding: 0 25px 0 10px;
   text-align: left;
-  -moz-appearance: none;
-  -webkit-appearance: none;
 }
 
 /* Use our own theme for hover and option styles */
@@ -11583,7 +11576,6 @@ body.lm-mod-override-cursor * {
   background-color: #f7f7f7;
   white-space: nowrap;
 }
-.CodeMirror-linenumbers {}
 .CodeMirror-linenumber {
   padding: 0 3px 0 5px;
   min-width: 20px;
@@ -11645,7 +11637,6 @@ body.lm-mod-override-cursor * {
 }
 
 /* Can style cursor different in overwrite (non-insert) mode */
-.CodeMirror-overwrite .CodeMirror-cursor {}
 
 .cm-tab { display: inline-block; text-decoration: inherit; }
 
@@ -11675,10 +11666,6 @@ body.lm-mod-override-cursor * {
 .cm-s-default .cm-atom {color: #219;}
 .cm-s-default .cm-number {color: #164;}
 .cm-s-default .cm-def {color: #00f;}
-.cm-s-default .cm-variable,
-.cm-s-default .cm-punctuation,
-.cm-s-default .cm-property,
-.cm-s-default .cm-operator {}
 .cm-s-default .cm-variable-2 {color: #05a;}
 .cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}
 .cm-s-default .cm-comment {color: #a50;}
@@ -11830,8 +11817,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   z-index: 2;
   padding: 0.1px; /* Force widget margins to stay inside of the container */
 }
-
-.CodeMirror-widget {}
 
 .CodeMirror-rtl pre { direction: rtl; }
 
@@ -12688,10 +12673,6 @@ span.CodeMirror-selectedtext { background: none; }
   background-color: var(--jp-inverse-layout-color1);
 }
 /* ...or leave it untouched if they don't */
-[data-jp-theme-light='false'] .jp-RenderedImage img.jp-needs-dark-background {
-}
-[data-jp-theme-light='true'] .jp-RenderedImage img.jp-needs-light-background {
-}
 
 .jp-RenderedHTMLCommon img,
 .jp-RenderedImage img,
@@ -13139,8 +13120,7 @@ h6:hover .jp-InternalAnchorLink {
 | Private CSS variables
 |----------------------------------------------------------------------------*/
 
-:root {
-}
+
 
 /*-----------------------------------------------------------------------------
 | Main OutputArea
@@ -14455,9 +14435,6 @@ all of MD as it is not optimized for dense, information rich UIs.
 
 <style type="text/css">
 /* Force rendering true colors when outputing to pdf */
-* {
-  -webkit-print-color-adjust: exact;
-}
 
 /* Misc */
 a.anchor-link {
@@ -14559,12 +14536,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14740,9 +14717,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install --user nltk
-<span class="o">!</span>pip install --user wordcloud
-<span class="o">!</span>pip install --user tensorflow
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>nltk
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>wordcloud
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>tensorflow
 </pre></div>
 
      </div>
@@ -14866,18 +14843,18 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
 <span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
 
 <span class="c1"># %matplotlib inline</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'ggplot'</span><span class="p">)</span>
 <span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
 
 <span class="c1"># Ignore warnings.</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">Warning</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;stopwords&quot;</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wordnet&quot;</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;omw-1.4&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s2">"ignore"</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">Warning</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"wordnet"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'punkt'</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'omw-1.4'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14964,8 +14941,8 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.precision&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.precision"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{:.3f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span>
 </pre></div>
 
      </div>
@@ -14999,19 +14976,19 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
     <span class="c1"># Visualizes the training and validation performance of the model.</span>
     <span class="c1"># Helps to identify overfitting or underfitting.</span>
     
-    <span class="n">loss_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;loss&#39;</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">&#39;val&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
-    <span class="n">val_loss_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;loss&#39;</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">&#39;val&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
-    <span class="n">acc_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;accuracy&#39;</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">&#39;val&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
-    <span class="n">val_acc_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;accuracy&#39;</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">&#39;val&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+    <span class="n">loss_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">'loss'</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">'val'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+    <span class="n">val_loss_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">'loss'</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">'val'</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+    <span class="n">acc_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">'accuracy'</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">'val'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+    <span class="n">val_acc_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">'accuracy'</span> <span class="ow">in</span> <span class="n">s</span> <span class="ow">and</span> <span class="s1">'val'</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
     
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">COLOR</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span>
+    <span class="n">COLOR</span> <span class="o">=</span> <span class="s1">'gray'</span>
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>   <span class="c1"># legend fontsize</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'legend'</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>   <span class="c1"># legend fontsize</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">'figure'</span><span class="p">,</span> <span class="n">titlesize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
         
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">loss_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Loss is missing in history&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Loss is missing in history'</span><span class="p">)</span>
         <span class="k">return</span> 
     
     <span class="c1">## As loss always exists</span>
@@ -15020,42 +14997,42 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
     <span class="c1">## Loss</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">hspace</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'text.color'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'black'</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.titlecolor'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'black'</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.labelcolor'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'xtick.color'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'ytick.color'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">loss_list</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">&#39;b-o&#39;</span><span class="p">,</span>
-                 <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Train (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;.4f&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">'b-o'</span><span class="p">,</span>
+                 <span class="n">label</span> <span class="o">=</span> <span class="s1">'Train ('</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">'.4f'</span><span class="p">))</span><span class="o">+</span><span class="s1">')'</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">val_loss_list</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span>
-                 <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Valid (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;.4f&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">'g'</span><span class="p">,</span>
+                 <span class="n">label</span> <span class="o">=</span> <span class="s1">'Valid ('</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">'.4f'</span><span class="p">))</span><span class="o">+</span><span class="s1">')'</span><span class="p">))</span>
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Loss'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Epochs'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">'gray'</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">'best'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     
     <span class="c1">## Accuracy</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">hspace</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;text.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlecolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelcolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'text.color'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'black'</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.titlecolor'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'black'</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.labelcolor'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'xtick.color'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'ytick.color'</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLOR</span>
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">acc_list</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">&#39;b-o&#39;</span><span class="p">,</span>
-                 <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Train (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;.4f&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">'b-o'</span><span class="p">,</span>
+                 <span class="n">label</span> <span class="o">=</span> <span class="s1">'Train ('</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">'.4f'</span><span class="p">))</span><span class="o">+</span><span class="s1">')'</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">val_acc_list</span><span class="p">:</span>    
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span>
-                 <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Valid (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;.4f&#39;</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">],</span> <span class="s1">'g'</span><span class="p">,</span>
+                 <span class="n">label</span> <span class="o">=</span> <span class="s1">'Valid ('</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">'.4f'</span><span class="p">))</span><span class="o">+</span><span class="s1">')'</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Accuracy'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Epochs'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">facecolor</span> <span class="o">=</span> <span class="s1">'gray'</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">'best'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -15064,7 +15041,7 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
 
 <span class="k">def</span> <span class="nf">plot_conf_matr</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span>
                           <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-                          <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span>
+                          <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix'</span><span class="p">,</span>
                           <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">winter</span><span class="p">):</span>
     
   <span class="c1"># Plots training and validation loss/accuracy over epochs.</span>
@@ -15072,12 +15049,12 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
   <span class="c1"># Helps to identify overfitting or underfitting.</span>
   <span class="kn">import</span> <span class="nn">itertools</span>
 
-  <span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+  <span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span>
   <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">)</span>
 
   <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">,</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">)</span>
-  <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">,</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="s1">'nearest'</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">)</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span> <span class="o">+</span> <span class="n">title</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 
@@ -15087,24 +15064,24 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
       <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
 
   <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
-      <span class="n">conf_matr</span> <span class="o">=</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+      <span class="n">conf_matr</span> <span class="o">=</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'float'</span><span class="p">)</span> <span class="o">/</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
 
   <span class="n">thresh</span> <span class="o">=</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1.5</span> <span class="k">if</span> <span class="n">normalize</span> <span class="k">else</span> <span class="n">conf_matr</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">conf_matr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">range</span><span class="p">(</span><span class="n">conf_matr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
       <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
-          <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:0.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
-                    <span class="n">horizontalalignment</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span>
-                    <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
-                    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span> <span class="k">if</span> <span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span> <span class="k">else</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+          <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"</span><span class="si">{:0.2f}</span><span class="s2">%"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">),</span>
+                    <span class="n">horizontalalignment</span> <span class="o">=</span> <span class="s2">"center"</span><span class="p">,</span>
+                    <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">'bold'</span><span class="p">,</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="s2">"white"</span> <span class="k">if</span> <span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span> <span class="k">else</span> <span class="s2">"black"</span><span class="p">)</span>
       <span class="k">else</span><span class="p">:</span>
-          <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:,}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
-                    <span class="n">horizontalalignment</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span>
-                    <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span>
-                    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span> <span class="k">if</span> <span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span> <span class="k">else</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+          <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">"</span><span class="si">{:,}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                    <span class="n">horizontalalignment</span> <span class="o">=</span> <span class="s2">"center"</span><span class="p">,</span>
+                    <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">'bold'</span><span class="p">,</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="s2">"white"</span> <span class="k">if</span> <span class="n">conf_matr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">thresh</span> <span class="k">else</span> <span class="s2">"black"</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True label&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted label</span><span class="se">\n\n</span><span class="s1">Accuracy = </span><span class="si">{:0.2f}</span><span class="s1">%; Error = </span><span class="si">{:0.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'True label'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Predicted label</span><span class="se">\n\n</span><span class="s1">Accuracy = </span><span class="si">{:0.2f}</span><span class="s1">%; Error = </span><span class="si">{:0.2f}</span><span class="s1">%'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
@@ -15115,17 +15092,17 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
     
   <span class="n">words_counter</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="nb">set</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()])</span> <span class="c1"># finding words along with count</span>
   <span class="n">most_counted</span> <span class="o">=</span> <span class="n">words_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-  <span class="n">most_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">most_counted</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Words&quot;</span><span class="p">,</span> <span class="s2">&quot;Amount&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;Amount&quot;</span><span class="p">)</span> <span class="c1"># sorted data frame</span>
-  <span class="n">most_count</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Words&quot;</span><span class="p">,</span> 
-                       <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Amount&quot;</span><span class="p">,</span>
-                       <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+  <span class="n">most_count</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">most_counted</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Words"</span><span class="p">,</span> <span class="s2">"Amount"</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s2">"Amount"</span><span class="p">)</span> <span class="c1"># sorted data frame</span>
+  <span class="n">most_count</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">"Words"</span><span class="p">,</span> 
+                       <span class="n">y</span> <span class="o">=</span> <span class="s2">"Amount"</span><span class="p">,</span>
+                       <span class="n">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">,</span>
                        <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
-  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">most_count</span><span class="p">[</span><span class="s2">&quot;Amount&quot;</span><span class="p">]):</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">most_count</span><span class="p">[</span><span class="s2">"Amount"</span><span class="p">]):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span>
-             <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
-             <span class="n">va</span> <span class="o">=</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
-             <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+             <span class="s2">" "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">),</span>
+             <span class="n">color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">,</span>
+             <span class="n">va</span> <span class="o">=</span> <span class="s1">'center'</span><span class="p">,</span>
+             <span class="n">fontweight</span> <span class="o">=</span> <span class="s1">'bold'</span><span class="p">)</span>
     
     
 
@@ -15135,11 +15112,11 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
   <span class="c1"># Creates a word cloud from a subset of messages in the dataset based on a specified tag.</span>
   <span class="c1"># Provides a visual representation of the most frequent words in the messages.</span>
 
-  <span class="n">df_words_nl</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tag</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">]))</span>
+  <span class="n">df_words_nl</span> <span class="o">=</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'feature'</span><span class="p">]</span> <span class="o">==</span> <span class="n">tag</span><span class="p">][</span><span class="s1">'message'</span><span class="p">]))</span>
   <span class="n">df_wc_nl</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">512</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">df_words_nl</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="s1">'k'</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">df_wc_nl</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15193,7 +15170,7 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spam.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'spam.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">'latin-1'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15232,10 +15209,10 @@ Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\nacho\anaconda3\li
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span> <span class="o">=</span> <span class="n">df_spam</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;v1&#39;</span><span class="p">,</span> <span class="s1">&#39;v2&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">df_spam</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span> <span class="o">=</span> <span class="n">df_spam</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">'v1'</span><span class="p">,</span> <span class="s1">'v2'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df_spam</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'feature'</span><span class="p">,</span> <span class="s1">'message'</span><span class="p">]</span>
 <span class="n">df_spam</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of null values:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of null values:</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 <span class="n">df_spam</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
@@ -15304,7 +15281,7 @@ dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'feature'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15549,32 +15526,32 @@ Name: feature, dtype: int64</pre>
 <span class="c1"># Get the total number of messages</span>
 <span class="n">counter</span> <span class="o">=</span> <span class="n">df_spam</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Create a count plot for the &#39;feature&#39; column</span>
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">])</span>
+<span class="c1"># Create a count plot for the 'feature' column</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'feature'</span><span class="p">])</span>
 
 <span class="c1"># Create a twin axis (second y-axis) and make double axis</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 
 <span class="c1"># Set tick positions for the dual y-axes</span>
-<span class="c1"># Switch so the counter&#39;s axis is on the right, frequency axis is on the left</span>
+<span class="c1"># Switch so the counter's axis is on the right, frequency axis is on the left</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_left</span><span class="p">()</span>                 
 <span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_right</span><span class="p">()</span>
 
 <span class="c1"># Adjust label positions for the dual y-axes and switch the laberls over</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">'right'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">'left'</span><span class="p">)</span>
 
 <span class="c1"># Set the label for the second y-axis</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency, %&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'frequency, %'</span><span class="p">)</span>
 
 <span class="c1"># Annotate each bar with the corresponding percentage</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">()</span><span class="o">.</span><span class="n">get_points</span><span class="p">()[:,</span> <span class="mi">0</span><span class="p">]</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_bbox</span><span class="p">()</span><span class="o">.</span><span class="n">get_points</span><span class="p">()[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-  <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">100.</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">counter</span><span class="p">),</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">'</span><span class="si">{:.2f}</span><span class="s1">%'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">100.</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">counter</span><span class="p">),</span>
               <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">y</span><span class="p">),</span>
-              <span class="n">ha</span> <span class="o">=</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
-              <span class="n">va</span> <span class="o">=</span> <span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+              <span class="n">ha</span> <span class="o">=</span> <span class="s1">'center'</span><span class="p">,</span>
+              <span class="n">va</span> <span class="o">=</span> <span class="s1">'bottom'</span><span class="p">)</span>
 
 <span class="c1"># Set the major tick locator and range for the first y-axis</span>
 <span class="c1"># Use a LinearLocator to ensure the correct number of ticks</span>
@@ -15643,7 +15620,7 @@ class="
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_words</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">],</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_words</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'message'</span><span class="p">],</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15712,7 +15689,7 @@ class="
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_cloud</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_cloud</span><span class="p">(</span><span class="s1">'spam'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15756,7 +15733,7 @@ class="
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_cloud</span><span class="p">(</span><span class="s1">&#39;ham&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">word_cloud</span><span class="p">(</span><span class="s1">'ham'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15841,16 +15818,16 @@ class="
 <span class="n">embedding_dimension</span> <span class="o">=</span> <span class="mi">64</span>
 
 <span class="c1"># Define the type of truncation (post truncation)</span>
-<span class="n">trunc_type</span> <span class="o">=</span> <span class="s1">&#39;post&#39;</span>
+<span class="n">trunc_type</span> <span class="o">=</span> <span class="s1">'post'</span>
 
 <span class="c1"># Define the type of padding (post padding)</span>
-<span class="n">padding_type</span> <span class="o">=</span> <span class="s1">&#39;post&#39;</span>
+<span class="n">padding_type</span> <span class="o">=</span> <span class="s1">'post'</span>
 
 <span class="c1"># Set a threshold value for binary classification</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.5</span>
 
 <span class="c1"># Define the out-of-vocabulary token</span>
-<span class="n">oov_token</span> <span class="o">=</span> <span class="s2">&quot;&lt;OOV&gt;&quot;</span>
+<span class="n">oov_token</span> <span class="o">=</span> <span class="s2">"&lt;OOV&gt;"</span>
 
 <span class="c1"># Define the proportions for the test and validation sets</span>
 <span class="c1"># (Test set: 5% of the data, Validation set: 20% of the data)</span>
@@ -15908,7 +15885,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print a message to indicate the beginning of the data preprocessing stage</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage I. Preliminary actions. Preparing of needed sets</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage I. Preliminary actions. Preparing of needed sets</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Initialize an empty list to store cleaned and processed messages</span>
 <span class="n">full_df_l</span> <span class="o">=</span> <span class="p">[]</span>
@@ -15921,26 +15898,26 @@ class="
     <span class="c1"># Get the text content of the current row</span>
     <span class="n">mess_1</span> <span class="o">=</span> <span class="n">df_spam</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
-    <span class="c1"># Replace email addresses with &#39;emailaddr&#39;</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b[\w\-.]+?@\w+?\.\w{2,4}\b&#39;</span><span class="p">,</span> <span class="s1">&#39;emailaddr&#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="c1"># Replace email addresses with 'emailaddr'</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\b[\w\-.]+?@\w+?\.\w{2,4}\b'</span><span class="p">,</span> <span class="s1">'emailaddr'</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
-    <span class="c1"># Replace URLs with &#39;httpaddr&#39;</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(http[s]?\S+)|(\w+\.[A-Za-z]{2,4}\S*)&#39;</span><span class="p">,</span> <span class="s1">&#39;httpaddr&#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="c1"># Replace URLs with 'httpaddr'</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(http[s]?\S+)|(\w+\.[A-Za-z]{2,4}\S*)'</span><span class="p">,</span> <span class="s1">'httpaddr'</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
-    <span class="c1"># Replace monetary symbols with &#39;moneysymb&#39;</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;£|\$&#39;</span><span class="p">,</span> <span class="s1">&#39;moneysymb&#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="c1"># Replace monetary symbols with 'moneysymb'</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'£|\$'</span><span class="p">,</span> <span class="s1">'moneysymb'</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
-    <span class="c1"># Replace phone numbers with &#39;phonenumbr&#39;</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(\+\d{1,2}\s)?\d?[\-(.]?\d</span><span class="si">{3}</span><span class="s1">\)?[\s.-]?\d</span><span class="si">{3}</span><span class="s1">[\s.-]?\d</span><span class="si">{4}</span><span class="s1">\b&#39;</span><span class="p">,</span> <span class="s1">&#39;phonenumbr&#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="c1"># Replace phone numbers with 'phonenumbr'</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\b(\+\d{1,2}\s)?\d?[\-(.]?\d</span><span class="si">{3}</span><span class="s1">\)?[\s.-]?\d</span><span class="si">{3}</span><span class="s1">[\s.-]?\d</span><span class="si">{4}</span><span class="s1">\b'</span><span class="p">,</span> <span class="s1">'phonenumbr'</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
-    <span class="c1"># Replace numbers with &#39;numbr&#39;</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+(\.\d+)?&#39;</span><span class="p">,</span> <span class="s1">&#39;numbr&#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="c1"># Replace numbers with 'numbr'</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\d+(\.\d+)?'</span><span class="p">,</span> <span class="s1">'numbr'</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
     <span class="c1"># Remove punctuation marks and special characters</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\d\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^\w\d\s]'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span>
     
     <span class="c1"># Convert to lowercase and replace non-alphabetic characters with spaces</span>
-    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^A-Za-z]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">mess_1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[^A-Za-z]'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="n">mess_1</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     
     <span class="c1"># Tokenize the cleaned message</span>
     <span class="n">token_messages</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">mess_1</span><span class="p">)</span>
@@ -15951,12 +15928,12 @@ class="
     <span class="c1"># Iterate through each word in the tokenized message</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">token_messages</span><span class="p">:</span>
         <span class="c1"># Check if the word is not a stopword</span>
-        <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)):</span>
             <span class="c1"># Lemmatize the word and add it to the list</span>
             <span class="n">mess</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
     
     <span class="c1"># Join the processed words to form a cleaned message</span>
-    <span class="n">txt_mess</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mess</span><span class="p">)</span>
+    <span class="n">txt_mess</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mess</span><span class="p">)</span>
     
     <span class="c1"># Add the cleaned message to the list</span>
     <span class="n">full_df_l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">txt_mess</span><span class="p">)</span>
@@ -16080,8 +16057,8 @@ class="
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">test_size</span> <span class="o">+</span> <span class="n">valid_size</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span>
 
 <span class="c1"># Print number of rows in test and training sets</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of rows in test set:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of rows in training set:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows in test set:'</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows in training set:'</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -16145,24 +16122,24 @@ Number of rows in training set: 3876
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage IIa. Guassian Naive Bayes</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage IIa. Guassian Naive Bayes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage IIa. Guassian Naive Bayes</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Fit the Gaussian Naive Bayes model</span>
 <span class="n">class_NBC</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">y_pred_NBC</span> <span class="o">=</span> <span class="n">class_NBC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="c1"># Perform predictions</span>
 
 <span class="c1"># Display the first two predicted labels</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_NBC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_NBC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_NBC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_NBC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Compute the confusion matrix for Gaussian Naive Bayes</span>
 <span class="n">conf_m_NBC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_NBC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Gaussian Naive Bayes</span>
 <span class="n">class_rep_NBC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_NBC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_NBC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_NBC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Gaussian Naive Bayes</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_NBC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix for Gaussian Naive Bayes&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_NBC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span> <span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Confusion matrix for Gaussian Naive Bayes'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16234,24 +16211,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage IIb. Multinomial Naive Bayes</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage IIb. Multinomial Naive Bayes</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage IIb. Multinomial Naive Bayes</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Fit the Multinomial Naive Bayes model</span>
 <span class="n">class_MNB</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">y_pred_MNB</span> <span class="o">=</span> <span class="n">class_MNB</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="c1"># Perform predictions</span>
 
 <span class="c1"># Display the first two predicted labels</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_MNB</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_MNB</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_MNB</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_MNB</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Compute the confusion matrix for Multinomial Naive Bayes</span>
 <span class="n">conf_m_MNB</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_MNB</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Multinomial Naive Bayes</span>
 <span class="n">class_rep_MNB</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_MNB</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_MNB</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_MNB</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Multinomial Naive Bayes</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_MNB</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix for Multinomial Naive Bayes&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_MNB</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span> <span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Confusion matrix for Multinomial Naive Bayes'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16346,24 +16323,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage III. Decision Tree Classifier</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage III. Decision Tree Classifier</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage III. Decision Tree Classifier</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Decision Tree Classifier model</span>
 <span class="n">class_DTC</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Decision Tree Classifier</span>
 <span class="n">y_pred_DTC</span> <span class="o">=</span> <span class="n">class_DTC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_DTC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_DTC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_DTC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_DTC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Decision Tree Classifier</span>
 <span class="n">conf_m_DTC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_DTC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Decision Tree Classifier</span>
 <span class="n">class_rep_DTC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_DTC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_DTC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_DTC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Decision Tree Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_DTC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for Decision Tree&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_DTC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for Decision Tree'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16458,24 +16435,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage IV. Logistic Regression</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage IV. Logistic Regression</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage IV. Logistic Regression</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Logistic Regression model</span>
-<span class="n">class_LR</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;liblinear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">class_LR</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s1">'liblinear'</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Logistic Regression model</span>
 <span class="n">y_pred_LR</span> <span class="o">=</span> <span class="n">class_LR</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_LR</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_LR</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_LR</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_LR</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Logistic Regression</span>
 <span class="n">conf_m_LR</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_LR</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Logistic Regression</span>
 <span class="n">class_rep_LR</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_LR</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_LR</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_LR</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Logistic Regression</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_LR</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for Logistic Regression&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_LR</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for Logistic Regression'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16570,24 +16547,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage V. KNeighbors Classifier</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage V. KNeighbors Classifier</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage V. KNeighbors Classifier</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the KNeighbors Classifier model</span>
 <span class="n">class_KNC</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the KNeighbors Classifier</span>
 <span class="n">y_pred_KNC</span> <span class="o">=</span> <span class="n">class_KNC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_KNC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_KNC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_KNC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_KNC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for KNeighbors Classifier</span>
 <span class="n">conf_m_KNC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_KNC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for KNeighbors Classifier</span>
 <span class="n">class_rep_KNC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_KNC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_KNC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_KNC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for KNeighbors Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_KNC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for KNeighbors Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_KNC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for KNeighbors Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16682,24 +16659,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage VI. Support Vector Classification</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage VI. Support Vector Classification</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage VI. Support Vector Classification</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Support Vector Classification model</span>
 <span class="n">class_SVC</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">probability</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Support Vector Classification model</span>
 <span class="n">y_pred_SVC</span> <span class="o">=</span> <span class="n">class_SVC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_SVC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_SVC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_SVC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_SVC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Support Vector Classification</span>
 <span class="n">conf_m_SVC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_SVC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Support Vector Classification</span>
 <span class="n">class_rep_SVC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_SVC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_SVC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_SVC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Support Vector Classification</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_SVC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for SVC Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_SVC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for SVC Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16794,24 +16771,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage VII. Gradient Boosting Classifier</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage VII. Gradient Boosting Classifier</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage VII. Gradient Boosting Classifier</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Gradient Boosting Classifier model</span>
 <span class="n">class_GBC</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">seed</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Gradient Boosting Classifier</span>
 <span class="n">y_pred_GBC</span> <span class="o">=</span> <span class="n">class_GBC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_GBC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_GBC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_GBC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_GBC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Gradient Boosting Classifier</span>
 <span class="n">conf_m_GBC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_GBC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Gradient Boosting Classifier</span>
 <span class="n">class_rep_GBC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_GBC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_GBC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_GBC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Gradient Boosting Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_GBC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for Gradient Boosting Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_GBC</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for Gradient Boosting Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16907,24 +16884,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage VIII. Bagging Classifier + something else</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Bagging Classifier model using SVC classifier as the base estimator</span>
 <span class="n">class_BC</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">class_SVC</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Bagging Classifier</span>
 <span class="n">y_pred_BC</span> <span class="o">=</span> <span class="n">class_BC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Bagging Classifier</span>
 <span class="n">conf_m_BC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Bagging Classifier</span>
 <span class="n">class_rep_BC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Bagging Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix for Bagging Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span> <span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Confusion matrix for Bagging Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16996,24 +16973,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage VIII. Bagging Classifier + something else</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Bagging Classifier model using DTC classifier as the base estimator</span>
 <span class="n">class_BC</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">class_DTC</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Bagging Classifier</span>
 <span class="n">y_pred_BC</span> <span class="o">=</span> <span class="n">class_BC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Bagging Classifier</span>
 <span class="n">conf_m_BC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Bagging Classifier</span>
 <span class="n">class_rep_BC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Bagging Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix for Bagging Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span> <span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Confusion matrix for Bagging Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17085,24 +17062,24 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage VIII. Bagging Classifier + something else</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t\t</span><span class="s2">Stage VIII. Bagging Classifier + something else</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Create and fit the Bagging Classifier model using KNC classifier as the base estimator</span>
 <span class="n">class_BC</span> <span class="o">=</span> <span class="n">BaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">class_KNC</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the Bagging Classifier</span>
 <span class="n">y_pred_BC</span> <span class="o">=</span> <span class="n">class_BC</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The first two predicted labels:&#39;</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The first two predicted labels:'</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_pred_BC</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Calculate the confusion matrix for Bagging Classifier</span>
 <span class="n">conf_m_BC</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
 
 <span class="c1"># Generate the classification report for Bagging Classifier</span>
 <span class="n">class_rep_BC</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_BC</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_BC</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for Bagging Classifier</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix for Bagging Classifier&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_BC</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span> <span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Confusion matrix for Bagging Classifier'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17209,7 +17186,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage I. Preliminary actions. Preparing of needed sets</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage I. Preliminary actions. Preparing of needed sets</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stage I. Preliminary actions. Preparing of needed sets</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Initialize empty lists to store sentences and labels for the new sets</span>
 <span class="n">sentences_new_set</span> <span class="o">=</span> <span class="p">[]</span>
@@ -17218,10 +17195,10 @@ class="
 <span class="c1"># Iterate through the rows of the df_spam dataset</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">df_spam</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
     <span class="c1"># Append each message to the sentences_new_set list</span>
-    <span class="n">sentences_new_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">sentences_new_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'message'</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
     
     <span class="c1"># Append each label to the labels_new_set list</span>
-    <span class="n">labels_new_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">&#39;feature&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">labels_new_set</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_spam</span><span class="p">[</span><span class="s1">'feature'</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -17315,12 +17292,12 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage II. Labels transformations</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage II. Labels transformations</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stage II. Labels transformations</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Transforming training set labels to numerical values</span>
 <span class="n">train_labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_labels_str</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_labels_str</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;ham&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">'ham'</span><span class="p">:</span>
         <span class="n">train_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">train_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -17328,7 +17305,7 @@ class="
 <span class="c1"># Transforming validation set labels to numerical values</span>
 <span class="n">valid_labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_labels_str</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valid_labels_str</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;ham&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">'ham'</span><span class="p">:</span>
         <span class="n">valid_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">valid_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -17336,7 +17313,7 @@ class="
 <span class="c1"># Transforming test set labels to numerical values</span>
 <span class="n">test_labels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_labels_str</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test_labels_str</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;ham&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">'ham'</span><span class="p">:</span>
         <span class="n">test_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">test_labels</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -17409,7 +17386,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage III. Tokenization</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage III. Tokenization</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stage III. Tokenization</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Initialize the Tokenizer with specified parameters</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="n">size_vocabulary</span><span class="p">,</span>
@@ -17541,7 +17518,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage IV. Model building</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage IV. Model building</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stage IV. Model building</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Define the dropout rate</span>
 <span class="n">drop_level</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Adjust this value as needed (In this case, after multiple tries I found 0.2 ot be the most optimal value)</span>
@@ -17558,13 +17535,13 @@ class="
     <span class="n">Dropout</span><span class="p">(</span><span class="n">drop_level</span><span class="p">),</span>
     
     <span class="c1"># Dense layer with 20 neurons and ReLU activation function</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">),</span>
     
     <span class="c1"># Another Dropout layer for regularization</span>
     <span class="n">Dropout</span><span class="p">(</span><span class="n">drop_level</span><span class="p">),</span>
     
     <span class="c1"># Dense output layer with 1 neuron and sigmoid activation for binary classification</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'sigmoid'</span><span class="p">)</span>
 <span class="p">])</span>
 </pre></div>
 
@@ -17629,17 +17606,17 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stage V. Model compiling &amp; fitting</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage V. Model compiling &amp; fitting</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Stage V. Model compiling &amp; fitting</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Define the optimizer using the Adam optimizer with a specific learning rate</span>
 <span class="n">optim</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">)</span>
 
 <span class="c1"># Compile the model with binary cross-entropy loss function, the defined optimizer, and accuracy metric</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">'binary_crossentropy'</span><span class="p">,</span>
               <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="p">,</span>
-              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+              <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
 
-<span class="c1"># Display a summary of the model&#39;s architecture</span>
+<span class="c1"># Display a summary of the model's architecture</span>
 <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
@@ -17810,7 +17787,7 @@ Epoch 20/20
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stage VI. Results visualization</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Stage VI. Results visualization</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">plot_history</span><span class="p">(</span><span class="n">history</span><span class="p">)</span> <span class="c1"># Visualize the training and validation history</span>
 </pre></div>
 
@@ -17882,7 +17859,7 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="n">embedding_dimension</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test accuracy: </span><span class="si">{</span><span class="n">model_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">% </span><span class="se">\t\t</span><span class="s2"> Test error: </span><span class="si">{</span><span class="n">model_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test accuracy: </span><span class="si">{</span><span class="n">model_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">% </span><span class="se">\t\t</span><span class="s2"> Test error: </span><span class="si">{</span><span class="n">model_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17950,17 +17927,17 @@ Test accuracy: 98.36% 		 Test error: 0.0566
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define a name for the saved model</span>
-<span class="n">M_name</span> <span class="o">=</span> <span class="s2">&quot;My_model&quot;</span>
+<span class="n">M_name</span> <span class="o">=</span> <span class="s2">"My_model"</span>
 
 <span class="c1"># Save the tokenizer using pickle</span>
-<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">M_name</span> <span class="o">+</span> <span class="s2">&quot;.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">M_name</span> <span class="o">+</span> <span class="s2">".pkl"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">))</span>
 
 <span class="c1"># Define the filepath for the saved model</span>
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">M_name</span> <span class="o">+</span> <span class="s1">&#39;.h5&#39;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">M_name</span> <span class="o">+</span> <span class="s1">'.h5'</span>
 
 <span class="c1"># Save the trained model in h5 format and display the size of the saved model</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">include_optimizer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_format</span><span class="o">=</span><span class="s1">&#39;h5&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size of the saved model:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span><span class="p">,</span> <span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">include_optimizer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_format</span><span class="o">=</span><span class="s1">'h5'</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Size of the saved model:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">st_size</span><span class="p">,</span> <span class="s2">"bytes"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18027,10 +18004,10 @@ Test accuracy: 98.36% 		 Test error: 0.0566
 
 <span class="c1"># Generate the classification report for the binary LSTM model</span>
 <span class="n">class_rep_bLSTM</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">y_prediction</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">class_rep_bLSTM</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\t\t\t</span><span class="s1">Classification report:</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">,</span> <span class="n">class_rep_bLSTM</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Plot the confusion matrix for the binary LSTM model</span>
-<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_bLSTM</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span><span class="s1">&#39;Ham&#39;</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Confusion matrix for bLSTM&#39;</span><span class="p">)</span>
+<span class="n">plot_conf_matr</span><span class="p">(</span><span class="n">conf_m_bLSTM</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Spam'</span><span class="p">,</span><span class="s1">'Ham'</span><span class="p">],</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Confusion matrix for bLSTM'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18111,8 +18088,8 @@ class="
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example messages to test the model</span>
-<span class="n">message_example</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Thank you for signing up for our Premium Membership. Your subscription includes exclusive benefits and content. To confirm your subscription, please reply with &#39;YES&#39; or &#39;NO&#39;. If you respond &#39;NO&#39;, you will not be enrolled and won&#39;t incur any charges.&quot;</span><span class="p">]</span>
-<span class="n">message_example_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Darling, please give me a cup of tea&quot;</span><span class="p">]</span>
+<span class="n">message_example</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Thank you for signing up for our Premium Membership. Your subscription includes exclusive benefits and content. To confirm your subscription, please reply with 'YES' or 'NO'. If you respond 'NO', you will not be enrolled and won't incur any charges."</span><span class="p">]</span>
+<span class="n">message_example_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Darling, please give me a cup of tea"</span><span class="p">]</span>
 
 <span class="c1"># Tokenize and pad the example messages</span>
 <span class="n">message_example_tp</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">message_example</span><span class="p">),</span>
@@ -18130,14 +18107,14 @@ class="
 
 <span class="c1"># Check if the predictions exceed the threshold</span>
 <span class="k">if</span> <span class="n">prediction</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This message is a genuine text&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"This message is a genuine text"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This message is a spam message&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"This message is a spam message"</span><span class="p">)</span>
     
 <span class="k">if</span> <span class="n">prediction_2</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This message is a genuine text&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"This message is a genuine text"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This message is a spam message&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"This message is a spam message"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18213,7 +18190,7 @@ This message is a genuine text
 <p>As I look forward to future endeavors, I carry with me the invaluable insights and skills I have gained from this project. I am excited to continue building upon this foundation, exploring new challenges, and contributing to the ever-evolving landscape of AI and data science. I invite you to provide any feedback or pose inquiries you may have. Kindly find my contact details listed below for your convenience. Your input is greatly appreciated.</p>
 <p>Ignacio Antequera Sanchez</p>
 <hr>
-<p><a href="https://www.linkedin.com/in/ignacio-antequera">LinkedIn</a>  ||  <a href="https://www.kaggle.com/ignacioantequera">GitHub</a>  ||  <a href="https://github.com/Ignacio-Antequera">Kaggle</a></p>
+<p><a href="https://www.linkedin.com/in/ignacio-antequera">LinkedIn</a>  ||  <a href="https://github.com/Ignacio-Antequera">GitHub</a>  ||  <a href="https://leetcode.com/Ignacio_antequera">Leetcode</a></p>
 
 </div>
 </div>
